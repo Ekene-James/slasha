@@ -3,8 +3,87 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { AppBar, Avatar, Badge, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core'
-import { useStyles } from './DrawerTheme';
+import { AppBar, Avatar, Badge, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core'
+const drawerWidth = 240;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      overflowX : 'hidden'
+    },
+    
+   },
+
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+    boxShadow : 'none'
+  },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  date : {
+    fontSize : '10px',
+    color: 'gray'
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor : 'rgb(234,234,234)'
+  },
+  
+
+  icon: {
+    fontSize: '15px'
+  },
+  iconBtn :{
+   border : '1px solid #ffd8d5',
+   width : '38px',
+   height : '38px',
+   background: 'transparent',
+   marginLeft : '5px',
+   alignSelf: 'center'
+
+  },
+  ntnBtn : {
+    width : '38px',
+   height : '38px',
+   background: '#e8e8e8',
+   marginRight : '7px',
+   alignSelf: 'center'
+  },
+  logo:{
+    marginTop : '15px'
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+ 
+ 
+
+}));
 
 function TopBar({handleDrawerToggle}) {
     const classes = useStyles();
