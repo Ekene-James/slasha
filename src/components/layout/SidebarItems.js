@@ -8,9 +8,38 @@ import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import {  List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import { useStyles } from './DrawerTheme';
+import {  List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core'
 
+
+export const useStyles = makeStyles((theme) => ({
+    listItem : {
+      fontSize: '10px',
+     '&:hover' : {
+      background: 'white'
+     },  
+    },
+  
+    listItemText : {
+      fontSize: '11px'
+    },
+    icon: {
+      fontSize: '15px'
+    },
+    iconBtn :{
+     border : '1px solid #ffd8d5',
+     width : '38px',
+     height : '38px',
+     background: 'transparent',
+     marginLeft : '5px',
+     alignSelf: 'center'
+
+    },
+
+    logo:{
+      marginTop : '15px'
+    },
+   
+  }));
 function SidebarItems() {
     const classes = useStyles();
     const items1 = [

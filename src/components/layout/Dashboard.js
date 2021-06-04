@@ -5,11 +5,46 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 
-import {  useTheme } from '@material-ui/core/styles';
-import { useStyles } from './DrawerTheme';
+import {  makeStyles, useTheme } from '@material-ui/core/styles';
+
 import SidebarItems from './SidebarItems';
 import TopBar from './TopBar';
+const drawerWidth = 240;
+export const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      overflowX : 'hidden'
+    },
+    
+   },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+    boxShadow : 'none'
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor : 'rgb(234,234,234)'
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    
+  },
+ 
 
+}));
 
 function Dashboard(props) {
   const { window,children } = props;
@@ -20,8 +55,6 @@ function Dashboard(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
