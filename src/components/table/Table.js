@@ -8,10 +8,43 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Row from './Row';
-import { Button } from '@material-ui/core';
-import { useStyles } from '../layout/DrawerTheme';
+import { Button, makeStyles } from '@material-ui/core';
 
 
+const useStyles = makeStyles( theme => ({
+  table: {
+    minWidth: 650,
+    boxShadow : 'none',
+  
+   
+  },
+  tableContainer: {
+    [theme.breakpoints.down("sm")]: {
+     
+      maxWidth: `85%`
+    }
+  },
+  tableHead : {
+      background : '#e8e8e8'
+  },
+  btn : {
+      color : 'green',
+      fontSize : '11px',
+      fontWeight : 'bold',
+      background: 'transparent',
+      border : '0.2px solid gray',
+      boxShadow : 'none',
+      borderRadius : '0',
+      height : '45px',
+      [theme.breakpoints.down("sm")]: {
+     
+        width: '150%'
+      }
+      
+  },
+ 
+ 
+}));
 
 
 const rows = [

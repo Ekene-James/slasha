@@ -95,36 +95,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
       },
     },
-    table: {
-      minWidth: 650,
-      boxShadow : 'none',
-    
-     
-    },
-    tableContainer: {
-      [theme.breakpoints.down("sm")]: {
-       
-        width: `calc(120% - ${drawerWidth}px)`
-      }
-    },
-    tableHead : {
-        background : '#e8e8e8'
-    },
-    btn : {
-        color : 'green',
-        fontSize : '11px',
-        fontWeight : 'bold',
-        background: 'transparent',
-        border : '0.2px solid gray',
-        boxShadow : 'none',
-        borderRadius : '0',
-        height : '45px',
-        [theme.breakpoints.down("sm")]: {
-       
-          width: '151%'
-        }
-        
-    },
+   
    
 
   }));
