@@ -87,7 +87,7 @@ function Dashboard(props) {
               keepMounted: true, // Better open performance on mobile.
             }}
           >
-            <SidebarItems/>
+            <SidebarItems click={handleDrawerToggle}/>
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
