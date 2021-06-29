@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import SupportContextProvider from './store/support/SupportStore'
+import AuthContextProvider from './store/auth/AuthStore'
 
 ReactDOM.render(
-  <>
+  <AuthContextProvider>
+  <SupportContextProvider>
     <App />
-  </>,
+  </SupportContextProvider>
+  </AuthContextProvider>,
   document.getElementById('root')
 );
 

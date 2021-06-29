@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-
+import Footer from '../../pages/footer/Footer';
 import {  makeStyles, useTheme } from '@material-ui/core/styles';
 
 import SidebarItems from './SidebarItems';
@@ -13,10 +13,14 @@ const drawerWidth = 240;
 export const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+   
     [theme.breakpoints.down('sm')]: {
       overflowX : 'hidden'
     },
     
+   },
+   top : {
+    overflow : 'hidden'
    },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -39,6 +43,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
+ 
     padding: theme.spacing(3),
     
   },
@@ -47,6 +52,7 @@ export const useStyles = makeStyles((theme) => ({
 }));
 
 function Dashboard(props) {
+ 
   const { window,children } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -59,6 +65,8 @@ function Dashboard(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <div className={classes.top}>
+   
     <div className={classes.root}>
       <CssBaseline />
     <TopBar handleDrawerToggle={handleDrawerToggle}/>
@@ -98,6 +106,8 @@ function Dashboard(props) {
         <div className={classes.toolbar} />
         {children}
       </main>
+    </div>
+        <Footer/>
     </div>
   );
 }

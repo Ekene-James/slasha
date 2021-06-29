@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { AuthContext } from '../../store/auth/AuthStore';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { AppBar, Avatar, Badge, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core'
@@ -86,8 +86,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TopBar({handleDrawerToggle}) {
+  const {state} = useContext(AuthContext);
     const classes = useStyles();
-  
+    const header = state?.route?.match(/([a-z])\w+/g);
+    const capitalize = String(header).replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
+
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -147,7 +150,7 @@ function TopBar({handleDrawerToggle}) {
           </IconButton>
           <div>
           <Typography style={{fontWeight : 'bold'}} variant="subtitle1" noWrap>
-            Balances
+            {capitalize}
           </Typography>
           <small className={classes.date}>
             Today, 20th october 2020
