@@ -54,7 +54,7 @@ export const useStyles = makeStyles((theme) => ({
     }
    
   }));
-function SidebarItems({click}) {
+function SidebarItems({clicked}) {
     const history = useHistory()
     
     const {state,dispatch} = useContext(AuthContext);
@@ -107,7 +107,8 @@ function SidebarItems({click}) {
     ]
     const handleSelected = (name) => {
         setselect(name);
-        click();
+        if(clicked)clicked();
+       
        
     }
     return (
